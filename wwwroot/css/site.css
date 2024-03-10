@@ -17,6 +17,7 @@ html {
   min-height: 100%;
 }
 
-body {
-  margin-bottom: 60px;
+.body {
+    margin-top: -60px; /* must match positive px of padding-top */
+    padding-top: 60px;
 }

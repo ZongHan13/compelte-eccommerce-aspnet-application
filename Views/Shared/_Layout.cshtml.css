@@ -39,6 +39,11 @@ button.accept-policy {
   line-height: inherit;
 }
 
+
+.body {
+    margin-top: -60px; /* must match positive px of padding-top */
+    padding-top: 60px;
+}
 .footer {
   position: absolute;
   bottom: 0;
