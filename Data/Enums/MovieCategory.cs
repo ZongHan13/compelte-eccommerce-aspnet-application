@@ -1,6 +1,6 @@
-﻿namespace eTicket.Data.Enums
+﻿namespace eTicket.Data
 {
-    public enum MovieCategroy
+    public enum MovieCategory
     {
         Action = 1,
         Comedy,

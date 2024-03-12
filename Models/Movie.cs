@@ -1,11 +1,12 @@
-﻿using eTicket.Data.Enums;
+﻿using eTicket.Data.Base;
+using eTicket.Data;
 using Microsoft.AspNetCore.Routing.Constraints;
 using System.ComponentModel.DataAnnotations;
 using System.ComponentModel.DataAnnotations.Schema;
 
 namespace eTicket.Models
 {
-    public class Movie
+    public class Movie: IEntityBase
     {
         [Key]
         public int Id { get; set; }
@@ -16,7 +17,7 @@ namespace eTicket.Models
         public double Price { get; set; }
         public DateTime StartDate { get; set; }
         public DateTime EndDate { get; set; }
-        public MovieCategroy MovieCategroy { get; set; }
+        public MovieCategory MovieCategory { get; set; }
                             
 
         //Relationships

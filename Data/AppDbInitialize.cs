@@ -1,4 +1,4 @@
-﻿using eTicket.Data.Enums;
+﻿using eTicket.Data;
 using eTicket.Models;
 
 namespace eTicket.Data
@@ -144,7 +144,7 @@ namespace eTicket.Data
                             EndDate = DateTime.Now.AddDays(10),
                             CinemaId = 3,
                             ProducerId = 3,
-                            MovieCategroy = MovieCategroy.Documentary
+                            MovieCategory = MovieCategory.Documentary
                         },
                         new Movie()
                         {
@@ -156,7 +156,7 @@ namespace eTicket.Data
                             EndDate = DateTime.Now.AddDays(3),
                             CinemaId = 1,
                             ProducerId = 1,
-                            MovieCategroy = MovieCategroy.Action
+                            MovieCategory = MovieCategory.Action
                         },
                         new Movie()
                         {
@@ -168,7 +168,7 @@ namespace eTicket.Data
                             EndDate = DateTime.Now.AddDays(7),
                             CinemaId = 4,
                             ProducerId = 4,
-                            MovieCategroy = MovieCategroy.Horror
+                            MovieCategory = MovieCategory.Horror
                         },
                         new Movie()
                         {
@@ -180,7 +180,7 @@ namespace eTicket.Data
                             EndDate = DateTime.Now.AddDays(-5),
                             CinemaId = 1,
                             ProducerId = 2,
-                            MovieCategroy = MovieCategroy.Documentary
+                            MovieCategory = MovieCategory.Documentary
                         },
                         new Movie()
                         {
@@ -192,7 +192,7 @@ namespace eTicket.Data
                             EndDate = DateTime.Now.AddDays(-2),
                             CinemaId = 1,
                             ProducerId = 3,
-                            MovieCategroy = MovieCategroy.Cartoon
+                            MovieCategory = MovieCategory.Cartoon
                         },
                         new Movie()
                         {
@@ -204,7 +204,7 @@ namespace eTicket.Data
                             EndDate = DateTime.Now.AddDays(20),
                             CinemaId = 1,
                             ProducerId = 5,
-                            MovieCategroy = MovieCategroy.Drama
+                            MovieCategory = MovieCategory.Drama
                         }
                     });
                 context.SaveChanges();
