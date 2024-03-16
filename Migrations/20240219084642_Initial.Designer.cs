@@ -108,7 +108,7 @@ namespace eTicket.Migrations
                     b.Property<DateTime>("EndDate")
                         .HasColumnType("datetime2");
 
-                    b.Property<int>("MovieCategroy")
+                    b.Property<int>("MovieCategory")
                         .HasColumnType("int");
 
                     b.Property<int>("MyProperty")

@@ -30,7 +30,7 @@ namespace eTicket.Models
 		public DateTime EndDate { get; set; }
 		[Required(ErrorMessage = "Movie category is required")]
 		[Display(Name = "Selectg a category")]
-		public MovieCategory MovieCategroy { get; set; }
+		public MovieCategory MovieCategory { get; set; }
 
 
 		//Relationships
