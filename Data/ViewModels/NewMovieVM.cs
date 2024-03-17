@@ -6,13 +6,13 @@ using System.ComponentModel.DataAnnotations.Schema;
 
 namespace eTicket.Models
 {
-    public class NewMovieVM
-    {
+	public class NewMovieVM
+	{
 		public int Id { get; set; }
 
-        [Required(ErrorMessage ="Name is required")]
-        [Display(Name = "Movie name")]
-        public string Name { get; set; }
+		[Required(ErrorMessage = "Name is required")]
+		[Display(Name = "Movie name")]
+		public string Name { get; set; }
 		[Required(ErrorMessage = "Description is required")]
 		[Display(Name = "Movie description")]
 		public string Description { get; set; }
@@ -43,6 +43,6 @@ namespace eTicket.Models
 		[Required(ErrorMessage = "Movie producer is required")]
 		[Display(Name = "Selectg a producer")]
 		public int ProducerId { get; set; }
-        
-    }
+
+	}
 }

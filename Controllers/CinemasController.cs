@@ -6,19 +6,19 @@ using Microsoft.EntityFrameworkCore;
 
 namespace eTicket.Controllers
 {
-    public class CinemasController : Controller
-    {
-        private readonly ICinemasService _service;
+	public class CinemasController : Controller
+	{
+		private readonly ICinemasService _service;
 
-        public CinemasController(ICinemasService service)
-        {
-            _service = service;
-        }
-        public async Task<IActionResult> Index()
-        {
-            var allCinemas = await _service.GetAllAsync();
-            return View(allCinemas);
-        }
+		public CinemasController(ICinemasService service)
+		{
+			_service = service;
+		}
+		public async Task<IActionResult> Index()
+		{
+			var allCinemas = await _service.GetAllAsync();
+			return View(allCinemas);
+		}
 
 		//GET: cinemas/create
 		public IActionResult Create()
@@ -56,10 +56,10 @@ namespace eTicket.Controllers
 		{
 			if (!ModelState.IsValid) return View(cinema);
 
-				await _service.UpdateAsync(id, cinema);
-				return RedirectToAction(nameof(Index));
-			
-			
+			await _service.UpdateAsync(id, cinema);
+			return RedirectToAction(nameof(Index));
+
+
 		}
 
 		//GET: Cinemas/Delete/1

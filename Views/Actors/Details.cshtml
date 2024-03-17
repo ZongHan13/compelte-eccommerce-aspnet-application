@@ -12,33 +12,33 @@
 		</p>
 		<div class="row">
 			<div class="col-md-8 offset-2">
-					<div class="form-group text-center">
+				<div class="form-group text-center">
 					<img class="border-info rounded-circle" style="max-width: 150px; max-height:200px" id="ProfilePicturePreview" />
-					</div>
-					<div class="form-group">
-						<label asp-for="ProfilePicture" class="control-label"></label>
-						<input asp-for="ProfilePicture" class="form-control" readonly/>
-						<span asp-validation-for="ProfilePicture" class="text-danger"></span>
-					</div>
-					<br />
-					<div class="form-group">
-						<label asp-for="FullName" class="control-label"></label>
-						<input asp-for="FullName" class="form-control" readonly/>
-						<span asp-validation-for="FullName" class="text-danger"></span>
-					</div>
-					<br />
-					<div class="form-group">
-						<label asp-for="Bio" class="control-label"></label>
-						<input asp-for="Bio" class="form-control" readonly/>
-						<span asp-validation-for="Bio" class="text-danger"></span>
-					</div>
-					<br />
-					<div class="form-group">
-						
-						<a class="btn btn-outline-success float-end"asp-action="Edit" asp-route-id="@Model.Id">Edit</a>
-						<a class="btn btn-outline-secondary" asp-action="Index">Show All</a>
-					</div>
-				
+				</div>
+				<div class="form-group">
+					<label asp-for="ProfilePicture" class="control-label"></label>
+					<input asp-for="ProfilePicture" class="form-control" readonly />
+					<span asp-validation-for="ProfilePicture" class="text-danger"></span>
+				</div>
+				<br />
+				<div class="form-group">
+					<label asp-for="FullName" class="control-label"></label>
+					<input asp-for="FullName" class="form-control" readonly />
+					<span asp-validation-for="FullName" class="text-danger"></span>
+				</div>
+				<br />
+				<div class="form-group">
+					<label asp-for="Bio" class="control-label"></label>
+					<input asp-for="Bio" class="form-control" readonly />
+					<span asp-validation-for="Bio" class="text-danger"></span>
+				</div>
+				<br />
+				<div class="form-group">
+
+					<a class="btn btn-outline-success float-end" asp-action="Edit" asp-route-id="@Model.Id">Edit</a>
+					<a class="btn btn-outline-secondary" asp-action="Index">Show All</a>
+				</div>
+
 
 				</<div>
 				</div>
@@ -52,6 +52,6 @@
 					var output = document.getElementById('ProfilePicturePreview');
 					output.src = $("#ProfilePicture").val();
 				})
-				
+
 			</script>
 		}

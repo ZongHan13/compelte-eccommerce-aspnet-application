@@ -39,23 +39,23 @@
 						<input type="submit" value="Create" class="btn btn-outline-success float-end" />
 						<a class="btn btn-outline-secondary" asp-action="Index">Show All</a>
 					</div>
-				</form>	
-				
-			</<div>
+				</form>
+
+				</<div>
+				</div>
+			</div>
+
 		</div>
-	</div>
 
-</div>
-
-@section Scripts {
-	<script>
-		$(document).ready(function () {
+		@section Scripts {
+			<script>
+				$(document).ready(function () {
 					var output = document.getElementById('ProfilePicturePreview');
 					output.src = $("#ProfilePicture").val();
-		})
-		$("#ProfilePicture").on("change", function () {
-			var output = document.getElementById('ProfilePicturePreview');
-			output.src = $(this).val();
-		})
-	</script>
-}
+				})
+				$("#ProfilePicture").on("change", function () {
+					var output = document.getElementById('ProfilePicturePreview');
+					output.src = $(this).val();
+				})
+			</script>
+		}
