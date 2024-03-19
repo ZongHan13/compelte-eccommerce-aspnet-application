@@ -1,5 +1,10 @@
-﻿using eTicket.Models; using Microsoft.EntityFrameworkCore;  namespace eTicket.Data {
-	public class AppDbContext : DbContext
+﻿using eTicket.Models;
+using Microsoft.AspNetCore.Identity.EntityFrameworkCore;
+using Microsoft.EntityFrameworkCore;
+
+namespace eTicket.Data
+{
+	public class AppDbContext : IdentityDbContext<ApplicationUser>
 	{
 		public AppDbContext(DbContextOptions<AppDbContext> options) : base(options)
 		{
@@ -32,4 +37,5 @@
 		public DbSet<ShoppingCartItem> ShoppingCartItems { get; set; }
 
 
-	} } 
+	}
+}
