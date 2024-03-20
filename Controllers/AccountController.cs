@@ -29,7 +29,6 @@ namespace eTicket.Controllers
 			if (!ModelState.IsValid) return View(loginVM);
 
 			var user = await _userManager.FindByEmailAsync(loginVM.EmailAddress);
-			var username = user.FullName;
 			if (user != null)
 			{
 				var passwordCheck = await _userManager.CheckPasswordAsync(user, loginVM.Password);
@@ -38,7 +37,6 @@ namespace eTicket.Controllers
 					var result = await _signInManager.PasswordSignInAsync(user, loginVM.Password, false, false);
 					if (result.Succeeded)
 					{
-						TempData["Name"] = username;
 						return RedirectToAction("Index", "Movies");
 					}
 					TempData["Error"] = "Wrong credentials. Plese, try again!";
