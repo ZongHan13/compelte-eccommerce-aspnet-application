@@ -1,5 +1,11 @@
 ﻿
 @inject UserManager<ApplicationUser> UserManager;
+@{
+	var userName = UserManager.GetUserName(User);
+	var user = await UserManager.FindByNameAsync(userName);
+	var fullName = user.FullName;
+
+}
 @if(!User.Identity.IsAuthenticated)
 {
 	<a class="btn btn-outline-success my-2 my-sm-0" asp-controller="Account" asp-action="Login">
@@ -15,7 +21,7 @@
 	<div class="dropdown">
 		<button class="btn btn-outline-success dropdown-toggle" type="button" id="profile-btn" data-toggle="dropdown"
 				aria-expanded="false">
-			<i class="bi bi-person-badge"></i> Hello @TempData["Name"]
+			<i class="bi bi-person-badge"></i> Hello @fullName
 				
 		</button>
 		<ul class="dropdown-menu" aria-labelledby="profile-btn">
