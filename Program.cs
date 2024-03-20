@@ -23,6 +23,7 @@ builder.Services.AddScoped<IOrderService, OrdersService>();
 builder.Services.AddIdentity<ApplicationUser, IdentityRole>().AddEntityFrameworkStores<AppDbContext>();
 builder.Services.AddMemoryCache();
 
+
 builder.Services.AddSession();
 builder.Services.AddAuthentication(options =>
 {

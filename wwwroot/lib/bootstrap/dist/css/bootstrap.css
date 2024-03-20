@@ -4451,6 +4451,7 @@ textarea.form-control-lg {
   background-clip: border-box;
   border: 1px solid rgba(0, 0, 0, 0.125);
   border-radius: 0.25rem;
+  
 }
 .card > hr {
   margin-right: 0;
@@ -4474,10 +4475,15 @@ textarea.form-control-lg {
 .card > .list-group + .card-footer {
   border-top: 0;
 }
+.card-img {
+     /* Make the image fill the entire height of its container */
+     /* Ensure the image fills the container without distortion */
+}
 
 .card-body {
   flex: 1 1 auto;
   padding: 1rem 1rem;
+  
 }
 
 .card-title {

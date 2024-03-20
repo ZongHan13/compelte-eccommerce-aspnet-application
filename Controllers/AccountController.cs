@@ -1,4 +1,5 @@
 ﻿using eTicket.Data;
+using eTicket.Data.Static;
 using eTicket.Data.ViewModels;
 using eTicket.Models;
 using Microsoft.AspNetCore.Identity;
@@ -28,14 +29,16 @@ namespace eTicket.Controllers
 			if (!ModelState.IsValid) return View(loginVM);
 
 			var user = await _userManager.FindByEmailAsync(loginVM.EmailAddress);
-			if(user != null)
+			var username = user.FullName;
+			if (user != null)
 			{
 				var passwordCheck = await _userManager.CheckPasswordAsync(user, loginVM.Password);
-				if(passwordCheck)
+				if (passwordCheck)
 				{
 					var result = await _signInManager.PasswordSignInAsync(user, loginVM.Password, false, false);
 					if (result.Succeeded)
 					{
+						TempData["Name"] = username;
 						return RedirectToAction("Index", "Movies");
 					}
 					TempData["Error"] = "Wrong credentials. Plese, try again!";
@@ -48,6 +51,41 @@ namespace eTicket.Controllers
 		}
 
 		public IActionResult Register() => View(new RegisterVM());
+
+		[HttpPost]
+		public async Task<IActionResult> Register(RegisterVM registerVM)
+		{
+			if (!ModelState.IsValid) return View(registerVM);
+			var user = await _userManager.FindByEmailAsync(registerVM.EmailAddress);
+			if (user != null)
+			{
+				TempData["Error"] = "This email address is already in use";
+				return View(registerVM);
+			}
+			var newUser = new ApplicationUser()
+			{
+				FullName = registerVM.FullName,
+				Email = registerVM.EmailAddress,
+				UserName = registerVM.EmailAddress
+			};
+			var newUserResponse = await _userManager.CreateAsync(newUser, registerVM.Password);
+			if (newUserResponse.Succeeded)
+			{
+				await _userManager.AddToRoleAsync(newUser, UserRoles.User);
+				return View("RegisterComplete");
+			}
+			List<IdentityError> errorList = newUserResponse.Errors.ToList();
+			var errors = string.Join(", ", errorList.Select(e => e.Description));
+			TempData["Error"] = errors;
+			return View(registerVM);
+		}
+
+		[HttpPost]
+		public async Task<IActionResult> Logout()
+		{
+			await _signInManager.SignOutAsync();
+			return RedirectToAction("Index", "Movies");
+		}
 
 	}
 }

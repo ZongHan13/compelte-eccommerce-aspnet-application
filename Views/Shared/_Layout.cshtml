@@ -42,41 +42,22 @@
 
 				</ul>
 
-				<form class="form-inline my-2 my-lg-0" asp-controller="Movies" asp-action="Filter" style="padding-right: 25px;">
+				<form class="form-inline my-2 my-lg-0 d-flex" asp-controller="Movies" asp-action="Filter" style="padding-right: 25px;">
 					<input name="searchString" type="text" class="form-control" placeholder="Search for a movie..." aria-label="Recipient's username" aria-describedby="button-addon2">
 					<button class="btn btn-outline-success my-2 my-sm-0" type="submit"><i class="bi bi-search"></i></button>
 				</form>
 
+
 				<ul class="navbar-nav">
 					@await Component.InvokeAsync("ShoppingCartSummary")
 				</ul>
-				 
-				<a class="btn btn-outline-success my-2 my-sm-0" asp-controller="Account" asp-action="Login"> 
-					<i class="bi bi-box-arrow-in-right"></i> Login
-				</a>
 
-				<a class="btn btn-outline-primary my-2 my-sm-0" asp-controller="Account" asp-action="Register">
-					<i class="bi bi-box-arrow-in-right"></i> Register
-				</a>
-
-
-				@*User profile section*@
-				<div class="dropdown">
-					<button class="btn btn-outline-success dropdown-toggle" type="button" id="profile-btn" data-toggle="dropdown"
-							aria-expanded="false">
-						<i class="bi bi-person-badge"></i> Hello User
-					</button>
-					<ul class="dropdown-menu" aria-labelledby="profile-btn">
-						<li>
-							<a class="dropdown-item" asp-controller="Orders" asp-action="Index">
-								<i class="bg-info bi-list"></i>Orders
-							</a>
-						</li>
-					</ul>
+				
+				<partial name="_Identity.cshtml" />
 
 
 
-				</div>
+
 			</div>
 		</nav>
 	</header>
