@@ -13,7 +13,11 @@
 					<th>@Html.DisplayNameFor(modoel => modoel.ProfilePicture)</th>
 					<th>@Html.DisplayNameFor(modoel => modoel.FullName)</th>
 					<th>@Html.DisplayNameFor(modoel => modoel.Bio)</th>
-					<th>Actions</th>
+					@if (User.Identity.IsAuthenticated && User.IsInRole("Admin"))
+					{
+						<th>Actions</th>
+					}
+					
 				</tr>
 			</thead>
 			<tbody>
@@ -29,12 +33,16 @@
 						<td class="align-middle text-center">
 							@Html.DisplayFor(modelItem => item.Bio)
 						</td>
-						<td class="align-middle text-center">
-							<a class="btn btn-outline-primary" asp-action="Edit" asp-route-id="@item.Id"><i class="bi bi-pencil-square"></i>Edit </a>
-							<a class="btn btn-outline-info" asp-action="Details" asp-route-id="@item.Id"><i class="bi bi-eye"></i>Detials </a>
-							<a class="btn btn-danger text-white" asp-action="Delete" asp-route-id="@item.Id"><i class="bi bi-trash"></i>Delete </a>
+						@if (User.Identity.IsAuthenticated && User.IsInRole("Admin"))
+						{
+							<td class="align-middle text-center">
+								<a class="btn btn-outline-primary" asp-action="Edit" asp-route-id="@item.Id"><i class="bi bi-pencil-square"></i>Edit </a>
+								<a class="btn btn-outline-info" asp-action="Details" asp-route-id="@item.Id"><i class="bi bi-eye"></i>Detials </a>
+								<a class="btn btn-danger text-white" asp-action="Delete" asp-route-id="@item.Id"><i class="bi bi-trash"></i>Delete </a>
 
-						</td>
+							</td>
+						}
+						
 					</tr>
 				}
 			</tbody>

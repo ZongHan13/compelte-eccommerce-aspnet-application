@@ -1,10 +1,15 @@
 ﻿@inject UserManager<ApplicationUser> UserManager;
 @{
-	var userName = UserManager.GetUserName(User);
-	var user = await UserManager.FindByNameAsync(userName);
-	var fullName = user.FullName;
-
+	var fullName = "";
+	if (User.Identity.IsAuthenticated)
+	{
+		var userName = UserManager.GetUserName(User);
+		var user = await UserManager.FindByNameAsync(userName);
+		fullName = user.FullName;
+	}
 }
+
+
 @if (!User.Identity.IsAuthenticated)
 {
 	<a class="btn btn-outline-success my-2 my-sm-0" asp-controller="Account" asp-action="Login">
