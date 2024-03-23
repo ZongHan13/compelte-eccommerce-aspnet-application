@@ -1,11 +1,14 @@
 ﻿using eTicket.Data;
 using eTicket.Data.Services;
+using eTicket.Data.Static;
 using eTicket.Models;
+using Microsoft.AspNetCore.Authorization;
 using Microsoft.AspNetCore.Mvc;
 using Microsoft.EntityFrameworkCore;
 
 namespace eTicket.Controllers
 {
+	[Authorize(Roles = UserRoles.Admin)]
 	public class ProducersController : Controller
 	{
 		private readonly IProducerService _service;
@@ -15,12 +18,14 @@ namespace eTicket.Controllers
 			_service = service;
 		}
 
+		[AllowAnonymous]
 		public async Task<IActionResult> Index()
 		{
 			var allProducers = await _service.GetAllAsync();
 			return View(allProducers);
 		}
 		//GET: producers/details/1
+		[AllowAnonymous]
 		public async Task<IActionResult> Details(int id)
 		{
 			var producerDetails = await _service.GetByIdAsync(id);
@@ -29,6 +34,7 @@ namespace eTicket.Controllers
 		}
 
 		//GET: producers/create
+		
 		public IActionResult Create()
 		{
 			return View();

@@ -32,9 +32,16 @@ else
 		<ul class="dropdown-menu" aria-labelledby="profile-btn">
 			<li>
 				<a class="dropdown-item" asp-controller="Orders" asp-action="Index">
-					<i class="bg-info bi-list"></i>Orders
+					<i class="bi bi-list" style="padding-right:5px"></i>Orders
 				</a>
 			</li>
+			@if (User.IsInRole("Admin")) {
+			<li>
+				<a class="dropdown-item" asp-controller="Account" asp-action="Users">
+					<i class="bi bi-people" style="padding-right:5px"></i>Users
+				</a>
+			</li>
+			}
 		</ul>
 	</div>
 	<span style="padding:5px;"></span>
