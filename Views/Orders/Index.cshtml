@@ -1,6 +1,9 @@
 ﻿@model List<Order>
 
-@ViewData["Title"] = "All orders";
+@{
+	ViewData["Title"] = "All orders";
+}
+
 
 
 <div class="row">
@@ -15,11 +18,11 @@
 					<th>Order ID</th>
 					<th>Items</th>
 					<th>Total</th>
-					@if(User.Identity.IsAuthenticated && User.IsInRole("Admin"))
+					@if (User.Identity.IsAuthenticated && User.IsInRole("Admin"))
 					{
 						<th>User</th>
 					}
-					
+
 				</tr>
 			</thead>
 			<tbody>
