@@ -7,7 +7,7 @@ using Microsoft.AspNetCore.Mvc;
 
 namespace eTicket.Controllers
 {
-	[Authorize(Roles = UserRoles.Admin)]
+	//[Authorize(Roles = "Admin, User")]
 	public class ActorsController : Controller
 	{
 		private readonly IActorService _service;
@@ -22,8 +22,9 @@ namespace eTicket.Controllers
 			var data = await _service.GetAllAsync();
 			return View(data);
 		}
-		//Get: Actors/Create 
-		public async Task<IActionResult> Create()
+        //Get: Actors/Create 
+        [Authorize(Roles = "Admin")]
+        public async Task<IActionResult> Create()
 		{
 			return View();
 		}
@@ -48,8 +49,9 @@ namespace eTicket.Controllers
 			return View(actorDetails);
 		}
 
-		//Get: Actor/Edit/1
-		public async Task<IActionResult> Edit(int id)
+        //Get: Actor/Edit/1
+        [Authorize(Roles = "Admin")]
+        public async Task<IActionResult> Edit(int id)
 		{
 			var actorDetails = await _service.GetByIdAsync(id);
 
@@ -70,6 +72,7 @@ namespace eTicket.Controllers
 		}
 
 		//Get: Actor/Delete/1
+		[Authorize(Roles = "Admin")]
 		public async Task<IActionResult> Delete(int id)
 		{
 			var actorDetails = await _service.GetByIdAsync(id);
