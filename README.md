@@ -2,9 +2,8 @@
 
 ## Introduction
 In this web application, you can browse movies, producers, actors, and cinemas. \
-Additionally, you can register and login to purchase any movies you desire then you can check your orders in orders page also you can add or remove item in shopping cart page. \
- \
-As admin user you can add, edit or delete any item and you can see all users oders and users informaiton. 
+Additionally, you can register and log in to purchase any movies you desire. Afterward, you can check your orders on the orders page, and you can also add or remove items in the shopping cart page. \
+As an admin user, you have the ability to add, edit, or delete any item, as well as view all user orders and user information.
 
 This web is depoly on azure : [eTickets](https://porcelain-etickets-app.azurewebsites.net)
 ## Technologies Used
