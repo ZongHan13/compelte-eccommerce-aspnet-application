@@ -9,7 +9,7 @@ This web is depoly on azure : [eTickets](https://porcelain-etickets-app.azureweb
 ## Technologies Used
 - **ASP.NET MVC**: Framework used for building web applications.
 - **Entity Framework Core (EF Core)**: Used for data access and managing databases.
-- **ASP.NET Identity**: Framework used for authentication and authorization.
+- **ASP.NET Identity**: ASP.NET Identity is used for managing user authentication and authorization. It provides features such as user registration, login, and role-based access control.
 - **Bootstrap**: Frontend framework used for creating responsive and visually appealing user interfaces.
 - **jQuery**: Library used for client-side scripting and DOM manipulation.
 - **PayPal API**: Used for integrating PayPal payment functionality into the application.
