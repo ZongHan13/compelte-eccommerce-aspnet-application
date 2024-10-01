@@ -18,8 +18,6 @@ namespace eTicket.Data.Base
 			await _context.Set<T>().AddAsync(entity);
 			await _context.SaveChangesAsync();
 		}
-
-
 		public async Task DeleteAsync(int id)
 		{
 			var entity = await _context.Set<T>().FirstOrDefaultAsync(n => n.Id == id);
@@ -27,7 +25,6 @@ namespace eTicket.Data.Base
 			entityEntry.State = EntityState.Deleted;
 			await _context.SaveChangesAsync();
 		}
-
 		public async Task<IEnumerable<T>> GetAllAsync() => await _context.Set<T>().ToListAsync();
 
 		public async Task<IEnumerable<T>> GetAllAsync(params Expression<Func<T, object>>[] inculdeProperties)
